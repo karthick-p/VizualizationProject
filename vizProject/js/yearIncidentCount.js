@@ -2,7 +2,7 @@
 
 (function stackedBarChart() {
 
-    var chart2 = d3.select("#chart1");
+    var chart2 = d3.select("#barChart");
     var svg = chart2.attr("width", 800)
             .attr("height", 200),
         margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -95,9 +95,6 @@
                 var yPosition = d3.mouse(this)[1] - 15;
                 tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
                 tooltip.select("text").text(("Traffic:"+ d.data.Traffic + ",Fire:"+ d.data.Fire + ",EMS:"+ d.data.EMS))});
-
-
-
 
         var legend = g.append("g")
             .attr("font-family", "sans-serif")

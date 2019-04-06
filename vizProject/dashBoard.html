@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/heatMap.css">
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-md-12" style="text-align: center">
+            <div class="well" style="background-color: #bddaff">
+                <h1> 911 Call Volumes Visualization </h1><br>
+                <a href="dashBoard.html" type="button" class="btn btn-primary">Dashboard 1</a>
+                <a href="dashBoard2.html" type="button" class="btn btn-success" style="margin-left: 10%">Dashboard 2</a><br>
+                <h2>Dashboard 1 </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="well" style="background-color: #ecfdff">
+                        <div style="text-align: center">
+                            <h3>Year Wise Incident Analysis (Bar Chart)</h3>
+                            <h5>Desc : To check incidents observed for each year</h5>
+                            <h5>Total Incidents vs Year</h5>
+                            <svg id="barChart"></svg>
+                            <script type="text/javascript" src="js/yearIncidentCount.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="well" style="background-color: #ecfdff">
+                        <div id="chart" style="text-align: center">
+                            <h3>Lower Meridion - Highest Recorded Incidents (Line Chart)</h3>
+                            <h5>Desc : To check how incident count varies with year</h5>
+                            <h5>Months vs Incident Counts</h5>
+                            <script src="js/line_chart.js" charset="utf-8"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="well" style="background-color: #fffce5">
+                        <h3>Time - Series Data (Heat Maps) </h3>
+                        <h5>Desc : To observe where most incidents occur with respect to hours</h5>
+                        <h5>Months vs Hours</h5>
+                        <div id="heatMapChart" style="margin-left: 20%"></div>
+                        <div id="dataset-picker" style="text-align: center"></div>
+                        <script type="text/javascript" src="js/heatMap_chart.js"></script>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="well" style="background-color: #fffce5">
+                        <h3>Incident analysis based on Town (Bubble Chart)</h3>
+                        <h5>Town name & Number of Records</h5>
+                        <div id = "bubbleChart">
+                        <script src="js/bubble_chart.js" charset="utf-8"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
