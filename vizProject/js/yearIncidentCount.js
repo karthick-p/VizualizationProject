@@ -1,5 +1,6 @@
 //reference : http://bl.ocks.org/mstanaland/6100713
 
+/* Created stacked bar chart function*/
 (function stackedBarChart() {
 
     var chart2 = d3.select("#barChart");

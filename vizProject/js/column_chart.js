@@ -1,3 +1,7 @@
+/*reference code : http://bl.ocks.org/cse4qf/95c335c73af588ce48646ac5125416c6 */
+
+
+/*creating a column chart function*/
 (function columnChart() {
 
 
@@ -16,16 +20,18 @@
         }))
         var barWidth = maxLength * 7;
         var numBars = Math.round(width / barWidth);
-        var isScrollDisplayed = barWidth * data.length > width;
+        var scrollenabled = barWidth * data.length > width;
 
-
-        console.log(isScrollDisplayed)
+        /*log scroll for verification purpose*/
+        console.log(scrollenabled)
 
         var xscale = d3.scale.ordinal()
             .domain(data.slice(0, numBars).map(function (d) {
                 return d.label;
             }))
             .rangeBands([0, width], .5);
+
+        /* Configuring the range of the axis*/
 
         var yscale = d3.scale.linear()
             .domain([0, 20000])
@@ -38,19 +44,19 @@
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom + selectorHeight);
 
-        var diagram = svg.append("g")
+        var columnChart = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        diagram.append("g")
+        columnChart.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0, " + height + ")")
             .call(xAxis);
 
-        diagram.append("g")
+        columnChart.append("g")
             .attr("class", "y axis")
             .call(yAxis);
 
-        var bars = diagram.append("g");
+        var bars = columnChart.append("g");
 
         bars.selectAll("rect")
             .data(data.slice(0, numBars), function (d) {
@@ -70,23 +76,23 @@
             });
 
 
-        if (isScrollDisplayed) {
+        if (scrollenabled) {
             var xOverview = d3.scale.ordinal()
                 .domain(data.map(function (d) {
                     return d.label;
                 }))
                 .rangeBands([0, width], .2);
-            yOverview = d3.scale.linear().range([heightOverview, 0]);
-            yOverview.domain(yscale.domain());
+            ySummary = d3.scale.linear().range([heightOverview, 0]);
+            ySummary.domain(yscale.domain());
 
-            var subBars = diagram.selectAll('.subBar')
+            var subBars = columnChart.selectAll('.subBar')
                 .data(data)
 
             subBars.enter().append("rect")
                 .classed('subBar', true)
                 .attr({
                     height: function (d) {
-                        return heightOverview - yOverview(d.value);
+                        return heightOverview - ySummary(d.value);
                     },
                     width: function (d) {
                         return xOverview.rangeBand()
@@ -96,7 +102,7 @@
                         return xOverview(d.label);
                     },
                     y: function (d) {
-                        return height + heightOverview + yOverview(d.value)
+                        return height + heightOverview + ySummary(d.value)
                     }
                 })
 
@@ -104,7 +110,7 @@
                 .domain([0, width])
                 .range(d3.range(data.length));
 
-            diagram.append("rect")
+            columnChart.append("rect")
                 .attr("transform", "translate(0, " + (height + margin.bottom) + ")")
                 .attr("class", "mover")
                 .attr("x", 0)
@@ -136,7 +142,7 @@
             xscale.domain(new_data.map(function (d) {
                 return d.label;
             }));
-            diagram.select(".x.axis").call(xAxis);
+            columnChart.select(".x.axis").call(xAxis);
 
             rects = bars.selectAll("rect")
                 .data(new_data, function (d) {
@@ -146,8 +152,6 @@
             rects.attr("x", function (d) {
                 return xscale(d.label);
             });
-
-// 	  rects.attr("transform", function(d) { return "translate(" + xscale(d.label) + ",0)"; })
 
             rects.enter().append("rect")
                 .attr("class", "bar")

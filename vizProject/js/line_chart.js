@@ -1,15 +1,15 @@
-
+/* Reference code : https://codepen.io/zakariachowdhury/pen/JEmjwq/*/
 var width = 500;
 var height = 300;
 var margin = 50;
 var duration = 250;
 
+/* Configuration for the line chart*/
 var lineOpacity = "0.5";
 var lineOpacityHover = "1";
 var otherLinesOpacityHover = "0.5";
 var lineStroke = "1.5px";
 var lineStrokeHover = "2.5px";
-
 var circleOpacity = '0.85';
 var circleOpacityOnLineHover = "0.25"
 var circleRadius = 3;
@@ -70,7 +70,7 @@ var data = [
 
 ];
 
-
+/* Iterating through the data set to plot the chart*/
 data.forEach(function(d) {
     d.values.forEach(function(d) {
         d.month = d.month;
@@ -79,36 +79,34 @@ data.forEach(function(d) {
 });
 
 
-/* Scale */
+/* Configure x-axis*/
 var xScale = d3.scaleLinear()
     .domain(d3.extent(data[0].values, d => d.month))
     .range([0, width-margin]);
 
+/* Configure x-axis*/
 var yScale = d3.scaleLinear()
     .domain([600, d3.max(data[0].values, d => d.count)])
     .range([height-margin, 0]);
 
-
+/*color set for the three year dataset (2016, 2017, 2018)*/
 var color = d3.scaleOrdinal()
     .range(["#f24143", "#ff1efd","#5375f2"]);
 
 
-/* Add SVG */
 var svg = d3.select("#chart").append("svg")
     .attr("width", (width+margin)+"px")
     .attr("height", (height+margin)+"px")
     .append('g')
     .attr("transform", `translate(${margin}, ${margin})`);
-
-
-/* Add line into SVG */
 var line = d3.line()
     .x(d => xScale(d.month))
     .y(d => yScale(d.count));
-
 let lines = svg.append('g')
     .attr('class', 'lines');
 
+
+/* push the data to the line chart*/
 lines.selectAll('.line-group')
     .data(data).enter()
     .append('g')
@@ -151,7 +149,7 @@ lines.selectAll('.line-group')
     });
 
 
-/* Add circles in the line */
+/* To display data on hovering over the points*/
 lines.selectAll("circle-group")
     .data(data).enter()
     .append("g")
@@ -194,8 +192,7 @@ lines.selectAll("circle-group")
             .attr("r", circleRadius);
     });
 
-
-/* Add Axis into SVG */
+/* Ticks set to 11 since data available from Jan to Nov*/
 var xAxis = d3.axisBottom(xScale).ticks(11);
 var yAxis = d3.axisLeft(yScale).ticks(11);
 

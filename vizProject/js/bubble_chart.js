@@ -1,10 +1,15 @@
+/* reference code : https://bl.ocks.org/alokkshukla/3d6be4be0ef9f6977ec6718b2916d168*/
 
+/*creating a bubble chart function*/
 (function bubbleChart() {
 
+    /* Reading the json file generated*/
 d3.json("csv_files/bubble.json",function(data) {
 
     var  dataset = data;
     var diameter = 600;
+
+    /*Configuration for the bubble colors*/
     var color = d3.scaleOrdinal(d3.schemeCategory20);
 
     var bubble = d3.pack()
@@ -37,6 +42,7 @@ d3.json("csv_files/bubble.json",function(data) {
             return d.Name + ": " + d.Count;
         });
 
+    /* Creating circle*/
     node.append("circle")
         .attr("r", function(d) {
             return d.r;
@@ -45,6 +51,7 @@ d3.json("csv_files/bubble.json",function(data) {
             return color(i);
         });
 
+    /* pushing the text and number of records in the centre of the circle*/
     node.append("text")
         .attr("dy", ".2em")
         .style("text-anchor", "middle")
