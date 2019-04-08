@@ -24,7 +24,7 @@
         <div class="col-md-12" style="text-align: center">
             <div class="well" style="background-color: #bddaff">
                 <h1> 911 Call Volumes Visualization </h1><br>
-                <a href="dashBoard.html" type="button" class="btn btn-primary">Dashboard 1</a>
+                <a href="index.html" type="button" class="btn btn-primary">Dashboard 1</a>
                 <a href="dashBoard2.html" type="button" class="btn btn-success" style="margin-left: 10%">Dashboard 2</a><br>
                 <h2>Dashboard 1 </h2>
             </div>
@@ -43,7 +43,7 @@
                 <div class="col-md-5">
                     <div class="well" style="background-color: #ecfdff">
                         <div id="chart" style="text-align: center">
-                            <h3>Lower Meridion - Highest Recorded Incidents (Line Chart)</h3>
+                            <h3>Lower Merion - Highest Recorded Incidents (Line Chart)</h3>
                             <h5>Desc : To check how incident count varies with year</h5>
                             <h5>Months vs Incident Counts</h5>
                             <script src="js/line_chart.js" charset="utf-8"></script>
@@ -52,19 +52,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <div class="well" style="background-color: #fffce5">
                         <h3>Time - Series Data (Heat Maps) </h3>
                         <h5>Desc : To observe where most incidents occur with respect to hours</h5>
                         <h5>Months vs Hours</h5>
-                        <div id="heatMapChart" style="margin-left: 20%"></div>
+                        <div id="heatMapChart"></div>
                         <div id="button_grid" style="text-align: center"></div>
                         <script type="text/javascript" src="js/heatMap_chart.js"></script>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="well" style="background-color: #fffce5">
                         <h3>Incident analysis based on Town (Bubble Chart)</h3>
+                        <h5>Desc : To check how incident count varies for township recorded more than 5000</h5>
                         <h5>Town name & Number of Records</h5>
                         <div id = "bubbleChart">
                         <script src="js/bubble_chart.js" charset="utf-8"></script>

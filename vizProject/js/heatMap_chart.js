@@ -1,9 +1,8 @@
-/*reference code : http://bl.ocks.org/tjdecke/5558084 */
 
 /* Heat maps for observing time series dataset*/
 (function heatMapChart() {
 
-    const margin = { top: 50, right: 0, bottom: 100, left: 30 },
+    const margin = { top: 50, right: 0, bottom: 100, left: 0 },
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom,
         gridSize = width / 36,
@@ -112,7 +111,9 @@
     buttonGrid.enter()
         .append("input")
         .attr("value", (d) => "Year " + d.match(numberPattern))
+        .attr("type","button")
         .attr("class", "btn btn-primary")
         .style("margin-right", "2em")
         .on("click", (d) => heatmapChart(d));
 }())
+/*reference code : http://bl.ocks.org/tjdecke/5558084 */

@@ -1,4 +1,3 @@
-//reference : http://bl.ocks.org/mstanaland/6100713
 
 /* Created stacked bar chart function*/
 (function stackedBarChart() {
@@ -138,3 +137,5 @@
     });
 
 }())
+//reference : http://bl.ocks.org/mstanaland/6100713
+

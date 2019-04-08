@@ -42,7 +42,7 @@ svg {
 
 .brush .extent {
     stroke: #fff;
-    fill: steelblue;
+    fill: #70ff75;
     fill-opacity: .25;
     shape-rendering: crispEdges;
 }
@@ -50,6 +50,6 @@ svg {
 rect.mover {
     stroke: red;
     stroke-opacity: .1;
-    fill: lightSteelBlue;
+    fill: #70ff75;
     fill-opacity: .5;
 }

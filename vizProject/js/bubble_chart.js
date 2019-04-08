@@ -7,7 +7,7 @@
 d3.json("csv_files/bubble.json",function(data) {
 
     var  dataset = data;
-    var diameter = 600;
+    var diameter = 550;
 
     /*Configuration for the bubble colors*/
     var color = d3.scaleOrdinal(d3.schemeCategory20);

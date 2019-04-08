@@ -11,7 +11,7 @@
         var margin = {top: 20, right: 10, bottom: 20, left: 40};
         var marginOverview = {top: 30, right: 10, bottom: 20, left: 40};
         var selectorHeight = 40;
-        var width = 600 - margin.left - margin.right;
+        var width = 450 - margin.left - margin.right;
         var height = 400 - margin.top - margin.bottom - selectorHeight;
         var heightOverview = 80 - marginOverview.top - marginOverview.bottom;
 

@@ -1,4 +1,3 @@
-/* Reference code : https://codepen.io/zakariachowdhury/pen/JEmjwq/*/
 var width = 500;
 var height = 300;
 var margin = 50;
@@ -216,3 +215,4 @@ svg.append("g")
     .attr("fill", "#f24143")
     .text("Lower Meridion Incident Counts");
 
+/* Reference code : https://codepen.io/zakariachowdhury/pen/JEmjwq/*/
